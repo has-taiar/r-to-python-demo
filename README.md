@@ -1,41 +1,65 @@
-# R Sales Analytics Project
+# R to Python Sales Analytics Migration Demo
 
-This project provides R scripts and notebooks to analyze sales data from SQL Server Express, creating interactive HTML visualizations for:
+This project demonstrates migrating R scripts to Python for sales data analysis from SQL Server, creating identical interactive HTML visualizations for:
 
 - Monthly sales trends over 12 months
 - Top 10 customers analysis
 
+To run the R script: 
+& "C:\Program Files\R\R-4.5.1\bin\Rscript.exe" sales_analysis.R
+
 ## 🚀 Quick Start
 
-### 1. Development Container Setup
+### 1. Environment Setup
 
-This project includes a complete development container with Ubuntu OS and all R dependencies pre-installed.
-
-**To use the dev container:**
+**Option A: Development Container (R)**
 1. Install Docker Desktop and VS Code with Dev Containers extension
 2. Open this folder in VS Code
 3. Click "Reopen in Container" when prompted
 4. Wait for the container to build (first time only)
 
+**Option B: Local Python**
+```bash
+pip install pyodbc pandas plotly
+```
+
 ### 2. Configure Database Connection
 
-1. Copy `config_template.R` to `config.R`
-2. Update the database details in `config.R`:
-   - Server name (usually `localhost\SQLEXPRESS`)
-   - Database name
-   - Table and column names
-   - Authentication method
+1. Copy `.env.example` to `.env` and update with your credentials
+2. Or set environment variables directly:
+
+**Windows PowerShell:**
+```powershell
+$env:DB_USERNAME = "your_username"
+$env:DB_PASSWORD = "your_password"
+```
+
+**Quick Setup Script:**
+```powershell
+.\set-env.ps1
+```
+
+**Linux/Mac:**
+```bash
+export DB_USERNAME=your_username
+export DB_PASSWORD=your_password
+```
 
 ### 3. Run the Analysis
 
 **Option A: R Script**
 ```r
-source("sales_analysis.R")
+source("R_solution/sales_analysis.R")
 ```
 
-**Option B: R Markdown (Recommended)**
+**Option B: Python Script**
+```python
+python sales_analysis.py
+```
+
+**Option C: R Markdown (R only)**
 ```r
-rmarkdown::render("sales_analysis.Rmd")
+rmarkdown::render("R_solution/sales_analysis.Rmd")
 ```
 
 ## 📁 Project Structure
@@ -44,9 +68,13 @@ rmarkdown::render("sales_analysis.Rmd")
 ├── .devcontainer/
 │   ├── devcontainer.json    # Dev container configuration
 │   └── setup.sh            # R packages and dependencies setup
-├── sales_analysis.R         # Main R script
-├── sales_analysis.Rmd       # R Markdown notebook
-├── config_template.R        # Database configuration template
+├── R_solution/
+│   ├── sales_analysis.R     # Main R script
+│   ├── sales_analysis.Rmd   # R Markdown notebook
+│   └── config.R            # R database configuration
+├── sales_analysis.py        # Python equivalent script
+├── .env.example            # Environment variables template
+├── set-env.ps1             # PowerShell setup script
 └── README.md               # This file
 ```
 
