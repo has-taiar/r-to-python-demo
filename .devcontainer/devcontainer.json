@@ -1,0 +1,32 @@
+{
+  "name": "R Development Environment",
+  "image": "rocker/tidyverse:4.3.2",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "true",
+      "username": "vscode",
+      "userUid": "automatic",
+      "userGid": "automatic"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "REditorSupport.r",
+        "ms-vscode.vscode-json"
+      ],
+      "settings": {
+        "r.rterm.linux": "/usr/local/bin/R",
+        "r.rpath.linux": "/usr/local/bin/R",
+        "r.rterm.option": [
+          "--no-save",
+          "--no-restore"
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [8787]
+}
