@@ -8,9 +8,16 @@ This project demonstrates migrating R scripts to Python for sales data analysis 
 - and other common sales queries 
 
 To run the R script locally (in PowerShell): 
+cd \R_solution
 & "C:\Program Files\R\R-4.5.1\bin\Rscript.exe" sales_analysis.R
 
 ## 🚀 Quick Start
+
+### Test migration from R to Python
+Use the prompt below to test the migration
+```
+I have this sales_analysis.R script that I want you to help me migrate it into python. I want the new file to be named r2py.py and I want it to be as simple as possible and it should be identical to the R script and produces the same output. I already have a requirements.txt file so you can update it if needed
+```
 
 ### 1. Environment Setup
 
@@ -31,10 +38,3 @@ To run the R script locally (in PowerShell):
 $env:DB_USERNAME = "your_username"
 $env:DB_PASSWORD = "your_password"
 ```
-
-**Migrate to Python**
-1. Used the prompt below w GH copilot to generate the python file r2py.py which generate exactly the same output as the R script
-2. Here is the prompt: 
-"I have this R script that I want you to help me migrate it into python. I want the new file to be named r2py.py and I want it to be as simple as possible and it should be identical t othe R script and produces the same output. I already have a requirements.txt file so you can update it if needed"
-
-3. As a stretch goal, we can deploy this to Azure to impress customers more. 
